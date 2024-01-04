@@ -30,12 +30,47 @@
     // attachEvent()
     // jQuery - on
 
-    document.getElementById('owl').addEventListener('click', function(e){
-        console.log(e);
-    }, false)
-
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
 
+    //document.getElementById('owl').addEventListener('click', function(e){
+    //    console.log(e);
+    //}, false)
+
+    //bubbling up- bottom to top used false and also by default false when we keep blank => also called event propogation
+    //document.getElementById('images').addEventListener('click', function(e){
+    //    console.log("clicked inside the ul");
+    //}, false)
+    //document.getElementById('owl').addEventListener('click', function(e){
+    //    console.log("owl clicked");
+    //    e.stopPropagation()
+    //}, false)
+     
+    // capturing mode - top to bottom parameter used in this called true
+    //document.getElementById('images').addEventListener('click', function(e){
+    //    console.log("clicked inside the ul");
+    //}, true)
+    //document.getElementById('owl').addEventListener('click', function(e){
+    //    console.log("owl clicked");
+    //}, true)
+
+    //document.getElementById('google').addEventListener
+    //('click', function(e){
+    //    e.preventDefault();
+    //    e.stopPropagation();
+    //    console.log("google clicked");
+    //}, false)
+
+    document.querySelector('#images').addEventListener
+    ('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
 </script>
 </html>
